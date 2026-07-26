@@ -18,12 +18,12 @@ body {
 
     min-height:100vh;
     background:
-    linear-gradient(
-        135deg,
-        #ffd6e7,
-        #fff0f6,
-        #ffc8dd
-    );
+linear-gradient(
+135deg,
+#d8b4fe,
+#f3e8ff,
+#c084fc
+);
 
     overflow-x:hidden;
     color:#6b2145;
