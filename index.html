@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little World ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+
+<body>
+
+
+<!-- =========================
+     OPENING SCREEN
+========================= -->
+
+<section id="opening">
+
+    <div class="opening-box">
+
+        <h1>
+            Welcome to Our Little World ❤️
+        </h1>
+
+
+        <p>
+            A place filled with memories, love, and happiness.
+        </p>
+
+
+        <button onclick="openWebsite()">
+            Open My Heart 💌
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- =========================
+     MAIN WEBSITE
+========================= -->
+
+
+<section id="main" style="display:none;">
+
+
+
+<!-- Music -->
+
+<audio id="music" loop>
+
+    <source src="music/song.mp3" type="audio/mp3">
+
+</audio>
+
+
+<button class="music-btn" onclick="musicControl()">
+
+🎵
+
+</button>
+
+
+
+
+
+<!-- Header -->
+
+<header>
+
+
+<h1>
+    For My Favorite Person ❤️
+</h1>
+
+
+<p id="typeText"></p>
+
+
+</header>
+
+
+
+
+
+
+
+<!-- =========================
+     PHOTO SLIDES
+========================= -->
+
+
+<div class="slider">
+
+
+
+<div class="slide active">
+
+
+<img src="images/photo1.jpg">
+
+
+<h2>
+    The beginning of our memories 🌸
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="slide">
+
+
+<img src="images/photo2.jpg">
+
+
+<h2>
+    Every moment became special ✨
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="slide">
+
+
+<img src="images/photo3.jpg">
+
+
+<h2>
+    Thank you for making me smile ❤️
+</h2>
+
+
+</div>
+
+
+
+
+
+<div class="slide">
+
+
+<img src="images/photo4.jpg">
+
+
+<h2>
+    More memories waiting for us 🌷
+</h2>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Controls -->
+
+
+<div class="controls">
+
+
+<button onclick="previousSlide()">
+
+⬅️
+
+</button>
+
+
+<span id="progress">
+
+1/4
+
+</span>
+
+
+<button onclick="nextSlide()">
+
+➡️
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- =========================
+     MEMORY SECTION
+========================= -->
+
+
+<section class="memory">
+
+
+<h1>
+    Our Journey 💕
+</h1>
+
+
+<div class="timeline">
+
+
+<div>
+
+<h3>
+Day One 🌱
+</h3>
+
+<p>
+The day everything started.
+</p>
+
+</div>
+
+
+
+<div>
+
+<h3>
+Beautiful Moments 🌸
+</h3>
+
+<p>
+Small memories that became important.
+</p>
+
+</div>
+
+
+
+<div>
+
+<h3>
+Today ❤️
+</h3>
+
+<p>
+Still creating more memories together.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- =========================
+     LOVE COUNTER
+========================= -->
+
+
+<section class="counter">
+
+
+<h2>
+Our Memories
+</h2>
+
+
+<h1 id="loveDays">
+
+0 days of memories ❤️
+
+</h1>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+     SECRET MESSAGE
+========================= -->
+
+
+<button
+class="secret"
+onclick="secretMessage()">
+
+Open Secret Message 💌
+
+</button>
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+Made with love ❤️
+</p>
+
+
+</footer>
+
+
+
+</section>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
