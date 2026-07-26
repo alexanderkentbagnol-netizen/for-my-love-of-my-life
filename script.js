@@ -417,7 +417,54 @@ alert(
 
 
 
+// ================================
+// PASSWORD SYSTEM
+// ================================
 
+
+function checkPassword(){
+
+
+let password =
+document.getElementById("password").value;
+
+
+
+// CHANGE YOUR PASSWORD HERE
+
+let correctPassword = "05/31/25";
+
+
+
+if(password === correctPassword){
+
+
+document.getElementById("opening")
+.style.display="none";
+
+
+document.getElementById("main")
+.style.display="block";
+
+
+startTyping();
+
+
+}
+
+
+else{
+
+
+document.getElementById("wrongPassword")
+.innerHTML =
+"Wrong password 💔 Try again";
+
+
+}
+
+
+}
 
 
 // Start first slide
