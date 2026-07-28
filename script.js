@@ -1,20 +1,6 @@
 // ===============================
 // PART 1 - PASSWORD & OPENING
 // ===============================
-window.addEventListener("load", function () {
-    const loader = document.getElementById("loader");
-
-    if (loader) {
-        setTimeout(() => {
-            loader.style.opacity = "0";
-
-            setTimeout(() => {
-                loader.style.display = "none";
-            }, 500);
-
-        }, 3000); // 3000ms = 3 seconds
-    }
-});
 
 // Website password
 const correctPassword = "053125";
