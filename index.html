@@ -2,109 +2,234 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Little World ❤️</title>
-    <link rel="stylesheet" href="style.css">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love of My Life ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
 
+<!-- PASSWORD PAGE -->
 
-    <!-- =========================
-         PASSWORD SCREEN
-    ========================== -->
+<div id="passwordPage">
 
-    <section id="opening" style="display:none;">
+    <div class="lock-box">
 
-        <div class="opening-box">
+        <h1>💜 For My Love of My Life 💜</h1>
 
-            <h1>🔐 Private Memory</h1>
+        <p>
+            Enter our secret password ❤️
+        </p>
 
-            <p>Enter the password to open our little world 💜</p>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Enter password">
+        <input 
+        type="password" 
+        id="passwordInput"
+        placeholder="Enter password">
 
-            <button onclick="checkPassword()">
-                Unlock My Heart 💜
-            </button>
 
-            <p id="wrongPassword"></p>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-         MAIN WEBSITE
-    ========================== -->
-
-    <section id="main" style="display:none;">
-
-        <!-- Music -->
-
-        <audio id="music" loop>
-            <source src="music/song.mp3" type="audio/mp3">
-        </audio>
-
-        <button class="music-btn" onclick="musicControl()">
-            🎵
+        <button onclick="checkPassword()">
+            Enter 💕
         </button>
 
-        <!-- Header -->
 
-        <header>
+        <p id="error"></p>
 
-            <h1>For My Favorite Person ❤️</h1>
 
-            <p id="typeText"></p>
+    </div>
 
-        </header>
+</div>
 
-        <!-- =========================
-             PHOTO SLIDES
-        ========================== -->
 
-        <div class="slider">
 
-            <div class="slide active">
 
-                <img src="images/photo1.jpg" alt="Photo 1">
 
-                <h2>The beginning of our memories 🌸</h2>
+<!-- MAIN WEBSITE -->
 
-            </div>
+<div id="mainPage">
 
-            <div class="slide">
 
-                <img src="images/photo2.jpg" alt="Photo 2">
 
-                <h2>Every moment became special ✨</h2>
+<header>
 
-            </div>
+<h1>
+For My Love of My Life 💜
+</h1>
 
-            <div class="slide">
 
-                <img src="images/photo3.jpg" alt="Photo 3">
+<p>
+05/31/25 • Our Story ✨
+</p>
 
-                <h2>Thank you for making me smile ❤️</h2>
 
-            </div>
+</header>
 
-            <div class="slide">
 
-                <img src="images/photo4.jpg" alt="Photo 4">
 
-                <h2>More memories waiting for us 🌷</h2>
 
-            </div>
 
-        </div>
+<section class="intro">
 
+
+<h2>
+A Little World Made For You ✨
+</h2>
+
+
+<p>
+Every memory, every smile, and every moment we shared will always have a place here.
+</p>
+
+
+</section>
+
+
+
+
+
+
+<!-- PHOTO SLIDER -->
+
+
+<div class="slider">
+
+
+<img 
+id="slideImage"
+src="images/photo1.jpg"
+alt="Our memory">
+
+
+</div>
+
+
+
+
+<div class="buttons">
+
+
+<button onclick="previousPhoto()">
+⬅ Previous
+</button>
+
+
+<button onclick="nextPhoto()">
+Next ➡
+</button>
+
+
+</div>
+
+
+
+
+
+
+<!-- MEMORY SECTION -->
+
+
+<section class="memory">
+
+
+<h2>
+Our Memories 💜
+</h2>
+
+
+
+<div class="card">
+
+<h3>
+Forever Special ❤️
+</h3>
+
+<p>
+Every picture has a story, and every moment with you became something worth remembering.
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h3>
+Thank You ✨
+</h3>
+
+<p>
+Thank you for being part of my life. This little website is a reminder of the memories we created together.
+</p>
+
+
+</div>
+
+
+
+
+<div class="card">
+
+<h3>
+My Message For You 💕
+</h3>
+
+<p>
+No matter where life takes us, the moments we shared will always have a special place in my heart.
+</p>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- MUSIC -->
+
+
+<audio id="music" controls loop>
+
+
+<source src="music/music.mp3" type="audio/mp3">
+
+
+Your browser does not support audio.
+
+
+</audio>
+
+
+
+
+
+</div>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
         <!-- Controls -->
 
         <div class="controls">
