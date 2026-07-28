@@ -1,110 +1,259 @@
 // ===============================
-// PART 1 - PASSWORD & OPENING
+// PASSWORD SYSTEM
 // ===============================
 
 
-// Website password
 const correctPassword = "053125";
+// Change "bella" to your own password
 
 
-// Get elements
-const passwordScreen = document.getElementById("password-screen");
-const passwordInput = document.getElementById("password-input");
-const enterButton = document.getElementById("enter-btn");
-const mainContent = document.getElementById("main-content");
 
 
-// Enter website function
-function unlockWebsite(){
 
-    const enteredPassword = passwordInput.value;
+function checkPassword(){
+
+
+    let enteredPassword = 
+    document.getElementById("passwordInput").value;
+
 
 
     if(enteredPassword === correctPassword){
 
-        // Remove password screen
-        passwordScreen.style.opacity = "0";
+
+        document.getElementById("passwordPage")
+        .style.display = "none";
 
 
-        setTimeout(()=>{
 
-            passwordScreen.style.display = "none";
-
-            // Show main website
-            mainContent.style.display = "block";
+        document.getElementById("mainPage")
+        .style.display = "block";
 
 
-            setTimeout(()=>{
 
-                mainContent.style.opacity = "1";
+        // Try to play music after entering
 
-            },100);
-
-
-        },800);
+        let music =
+        document.getElementById("music");
 
 
-    } else {
+        music.play().catch(()=>{
 
-        alert("Wrong password 💔 Try again.");
+            console.log("Music requires user interaction");
 
-        passwordInput.value = "";
+        });
+
+
 
     }
+
+
+
+    else{
+
+
+        document.getElementById("error")
+        .innerHTML =
+        "Wrong password 💔 Try again";
+
+
+    }
+
 
 }
 
 
-// Button click
-enterButton.addEventListener("click", unlockWebsite);
 
 
-// Enter key support
-passwordInput.addEventListener("keypress", function(event){
+
+
+
+
+
+// ===============================
+// PHOTO SLIDER
+// ===============================
+
+
+
+const photos = [
+
+
+    "images/photo1.jpg",
+
+    "images/photo2.jpg",
+
+    "images/photo3.jpg"
+
+
+];
+
+
+
+
+let currentPhoto = 0;
+
+
+
+
+
+
+function showPhoto(){
+
+
+
+    let image =
+    document.getElementById("slideImage");
+
+
+
+    image.style.animation = "none";
+
+
+
+    setTimeout(()=>{
+
+
+        image.src = photos[currentPhoto];
+
+
+        image.style.animation = 
+        "slide .6s";
+
+
+    },50);
+
+
+
+}
+
+
+
+
+
+
+function nextPhoto(){
+
+
+
+    currentPhoto++;
+
+
+
+    if(currentPhoto >= photos.length){
+
+
+        currentPhoto = 0;
+
+
+    }
+
+
+
+    showPhoto();
+
+
+
+}
+
+
+
+
+
+
+
+
+function previousPhoto(){
+
+
+
+    currentPhoto--;
+
+
+
+    if(currentPhoto < 0){
+
+
+        currentPhoto = photos.length - 1;
+
+
+    }
+
+
+
+    showPhoto();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// ENTER KEY SUPPORT
+// ===============================
+
+
+
+document
+.getElementById("passwordInput")
+.addEventListener("keypress", function(event){
+
+
 
     if(event.key === "Enter"){
 
-        unlockWebsite();
+
+        checkPassword();
+
 
     }
+
+
 
 });
 
 
 
+
+
+
+
+
+
 // ===============================
-// OPENING ANIMATION
+// AUTOMATIC PHOTO CHANGE
 // ===============================
 
 
-window.addEventListener("load", ()=>{
 
-    const opening = document.getElementById("opening");
+setInterval(()=>{
 
-    if(opening){
 
-        setTimeout(()=>{
+    // Only change if website is open
 
-            opening.classList.add("hide");
+    let page =
+    document.getElementById("mainPage");
 
-        },2500);
+
+
+    if(page.style.display === "block"){
+
+
+        nextPhoto();
+
 
     }
 
-});
-}
 
 
-// ===============================
-// PART 2 - SLIDESHOW & MUSIC
-// ===============================
-
-
-// ===============================
-// MEMORY SLIDESHOW
-// ===============================
-
-let currentSlide = 0;
+},5000);let currentSlide = 0;
 
 const slides = document.querySelectorAll(".memory-slide");
 
