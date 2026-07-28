@@ -2,386 +2,187 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Our Little World ❤️</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Little World ❤️</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
-
-<body>
-    
-
-<div id="loader">
-    ...
-</div>
-
-<section id="opening">
-    ...
-</section>
-
-<section id="main" style="display:none;">
-    ...
-</section>
-
-<script src="script.js"></script>
-
-
 <body>
 
-    
-<!-- =========================
-     OPENING SCREEN
-========================= -->
+    <!-- =========================
+         LOADING SCREEN
+    ========================== -->
 
-<section id="opening">
+    <div id="loader">
+        💜 Loading Our Memories...
+    </div>
 
-<div class="opening-box">
+    <!-- =========================
+         PASSWORD SCREEN
+    ========================== -->
 
-<h1>
-🔐 Private Memory
-</h1>
+    <section id="opening" style="display:none;">
 
-<p>
-Enter the password to open our little world 💜
-</p>
+        <div class="opening-box">
 
+            <h1>🔐 Private Memory</h1>
 
-<input 
-type="password" 
-id="password"
-placeholder="Enter password">
+            <p>Enter the password to open our little world 💜</p>
 
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter password">
 
-<button onclick="checkPassword()">
+            <button onclick="checkPassword()">
+                Unlock My Heart 💜
+            </button>
 
-Unlock My Heart 💜
+            <p id="wrongPassword"></p>
 
-</button>
+        </div>
 
+    </section>
 
-<p id="wrongPassword"></p>
+    <!-- =========================
+         MAIN WEBSITE
+    ========================== -->
 
+    <section id="main" style="display:none;">
 
-</div>
+        <!-- Music -->
 
-</section>
+        <audio id="music" loop>
+            <source src="music/song.mp3" type="audio/mp3">
+        </audio>
 
+        <button class="music-btn" onclick="musicControl()">
+            🎵
+        </button>
 
+        <!-- Header -->
 
+        <header>
 
-<!-- =========================
-     MAIN WEBSITE
-========================= -->
+            <h1>For My Favorite Person ❤️</h1>
 
+            <p id="typeText"></p>
 
-<section id="main" style="display:none;">
+        </header>
 
+        <!-- =========================
+             PHOTO SLIDES
+        ========================== -->
 
+        <div class="slider">
 
-<!-- Music -->
+            <div class="slide active">
 
-<audio id="music" loop>
+                <img src="images/photo1.jpg" alt="Photo 1">
 
-    <source src="music/song.mp3" type="audio/mp3">
+                <h2>The beginning of our memories 🌸</h2>
 
-</audio>
+            </div>
 
+            <div class="slide">
 
-<button class="music-btn" onclick="musicControl()">
+                <img src="images/photo2.jpg" alt="Photo 2">
 
-🎵
+                <h2>Every moment became special ✨</h2>
 
-</button>
+            </div>
 
+            <div class="slide">
 
+                <img src="images/photo3.jpg" alt="Photo 3">
 
+                <h2>Thank you for making me smile ❤️</h2>
 
+            </div>
 
-<!-- Header -->
+            <div class="slide">
 
-<header>
+                <img src="images/photo4.jpg" alt="Photo 4">
 
+                <h2>More memories waiting for us 🌷</h2>
 
-<h1>
-    For My Favorite Person ❤️
-</h1>
+            </div>
 
+        </div>
 
-<p id="typeText"></p>
+        <!-- Controls -->
 
+        <div class="controls">
 
-</header>
+            <button onclick="previousSlide()">⬅️</button>
 
+            <span id="progress">1/4</span>
 
+            <button onclick="nextSlide()">➡️</button>
 
+        </div>
 
+        <!-- =========================
+             MEMORY TIMELINE
+        ========================== -->
 
+        <section class="memory">
 
+            <h1>Our Journey 💕</h1>
 
-<!-- =========================
-     PHOTO SLIDES
-========================= -->
+            <div class="timeline">
 
+                <div>
+                    <h3>Day One 🌱</h3>
+                    <p>The day everything started.</p>
+                </div>
 
-<div class="slider">
+                <div>
+                    <h3>Beautiful Moments 🌸</h3>
+                    <p>Small memories that became important.</p>
+                </div>
 
+                <div>
+                    <h3>Today ❤️</h3>
+                    <p>Still creating more memories together.</p>
+                </div>
 
+            </div>
 
-<div class="slide active">
+        </section>
 
+        <!-- =========================
+             LOVE COUNTER
+        ========================== -->
 
-<img src="images/photo1.jpg">
+        <section class="counter">
 
+            <h2>Our Memories</h2>
 
-<h2>
-    The beginning of our memories 🌸
-</h2>
+            <h1 id="loveDays">
+                0 days of memories ❤️
+            </h1>
 
+        </section>
 
-</div>
+        <!-- =========================
+             SECRET MESSAGE
+        ========================== -->
 
+        <button class="secret" onclick="secretMessage()">
+            Open Secret Message 💌
+        </button>
 
+        <footer>
 
+            <p>Made with love ❤️</p>
 
+        </footer>
 
-<div class="slide">
+    </section>
 
-
-<img src="images/photo2.jpg">
-
-
-<h2>
-    Every moment became special ✨
-</h2>
-
-
-</div>
-
-
-
-
-
-<div class="slide">
-
-
-<img src="images/photo3.jpg">
-
-
-<h2>
-    Thank you for making me smile ❤️
-</h2>
-
-
-</div>
-
-
-
-
-
-<div class="slide">
-
-
-<img src="images/photo4.jpg">
-
-
-<h2>
-    More memories waiting for us 🌷
-</h2>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- Controls -->
-
-
-<div class="controls">
-
-
-<button onclick="previousSlide()">
-
-⬅️
-
-</button>
-
-
-<span id="progress">
-
-1/4
-
-</span>
-
-
-<button onclick="nextSlide()">
-
-➡️
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- =========================
-     MEMORY SECTION
-========================= -->
-
-
-<section class="memory">
-
-
-<h1>
-    Our Journey 💕
-</h1>
-
-
-<div class="timeline">
-
-
-<div>
-
-<h3>
-Day One 🌱
-</h3>
-
-<p>
-The day everything started.
-</p>
-
-</div>
-
-
-
-<div>
-
-<h3>
-Beautiful Moments 🌸
-</h3>
-
-<p>
-Small memories that became important.
-</p>
-
-</div>
-
-
-
-<div>
-
-<h3>
-Today ❤️
-</h3>
-
-<p>
-Still creating more memories together.
-</p>
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<!-- =========================
-     LOVE COUNTER
-========================= -->
-
-
-<section class="counter">
-
-
-<h2>
-Our Memories
-</h2>
-
-
-<h1 id="loveDays">
-
-0 days of memories ❤️
-
-</h1>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- =========================
-     SECRET MESSAGE
-========================= -->
-
-
-<button
-class="secret"
-onclick="secretMessage()">
-
-Open Secret Message 💌
-
-</button>
-
-
-
-
-
-
-
-<footer>
-
-
-<p>
-Made with love ❤️
-</p>
-
-
-</footer>
-
-
-
-</section>
-
-
-
-
-
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
 
