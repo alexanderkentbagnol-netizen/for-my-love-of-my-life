@@ -1,108 +1,254 @@
-// =================================
-// LOVE WEBSITE JAVASCRIPT
-// =================================
+// ===============================
+// PART 1 - PASSWORD & OPENING
+// ===============================
 
 
-// ================================
-// OPENING SCREEN
-// ================================
-
-function openWebsite(){
-
-    document.getElementById("opening")
-    .style.display="none";
+// Website password
+const correctPassword = "053125";
 
 
-    document.getElementById("main")
-    .style.display="block";
+// Get elements
+const passwordScreen = document.getElementById("password-screen");
+const passwordInput = document.getElementById("password-input");
+const enterButton = document.getElementById("enter-btn");
+const mainContent = document.getElementById("main-content");
 
 
-    startTyping();
+// Enter website function
+function unlockWebsite(){
+
+    const enteredPassword = passwordInput.value;
+
+
+    if(enteredPassword === correctPassword){
+
+        // Remove password screen
+        passwordScreen.style.opacity = "0";
+
+
+        setTimeout(()=>{
+
+            passwordScreen.style.display = "none";
+
+            // Show main website
+            mainContent.style.display = "block";
+
+
+            setTimeout(()=>{
+
+                mainContent.style.opacity = "1";
+
+            },100);
+
+
+        },800);
+
+
+    } else {
+
+        alert("Wrong password 💔 Try again.");
+
+        passwordInput.value = "";
+
+    }
 
 }
 
 
+// Button click
+enterButton.addEventListener("click", unlockWebsite);
 
 
-// ================================
-// SLIDESHOW SYSTEM
-// ================================
+// Enter key support
+passwordInput.addEventListener("keypress", function(event){
 
+    if(event.key === "Enter"){
 
-let currentSlide = 0;
+        unlockWebsite();
 
-let slides =
-document.querySelectorAll(".slide");
-
-
-let animations = [
-
-"fade",
-"zoom",
-"bounce",
-"left",
-"right",
-"rotate",
-"heartPop"
-
-];
-
-
-
-function changeSlide(number){
-
-
-slides.forEach(slide=>{
-
-slide.classList.remove(
-"active",
-...animations
-);
+    }
 
 });
 
 
 
-currentSlide = number;
+// ===============================
+// OPENING ANIMATION
+// ===============================
 
 
+window.addEventListener("load", ()=>{
 
-if(currentSlide >= slides.length){
+    const opening = document.getElementById("opening");
 
-currentSlide=0;
+    if(opening){
+
+        setTimeout(()=>{
+
+            opening.classList.add("hide");
+
+        },2500);
+
+    }
+
+});
+}
+
+
+// ===============================
+// PART 2 - SLIDESHOW & MUSIC
+// ===============================
+
+
+// ===============================
+// MEMORY SLIDESHOW
+// ===============================
+
+let currentSlide = 0;
+
+const slides = document.querySelectorAll(".memory-slide");
+
+
+// Show selected slide
+function showSlide(index){
+
+    if(slides.length === 0) return;
+
+
+    // Loop slides
+    if(index >= slides.length){
+
+        currentSlide = 0;
+
+    } else if(index < 0){
+
+        currentSlide = slides.length - 1;
+
+    } else {
+
+        currentSlide = index;
+
+    }
+
+
+    // Hide all slides
+    slides.forEach(slide=>{
+
+        slide.classList.remove("active");
+
+    });
+
+
+    // Show current slide
+    slides[currentSlide].classList.add("active");
 
 }
 
 
-if(currentSlide < 0){
 
-currentSlide=slides.length-1;
+// Next button
+function nextSlide(){
+
+    showSlide(currentSlide + 1);
+
+}
+
+
+// Previous button
+function previousSlide(){
+
+    showSlide(currentSlide - 1);
 
 }
 
 
 
-let animation =
-animations[
-Math.floor(
-Math.random()*animations.length
-)
-];
+// Auto change slides every 5 seconds
+
+setInterval(()=>{
+
+    nextSlide();
+
+},5000);
 
 
 
-slides[currentSlide]
-.classList.add(
-"active",
-animation
-);
+// Start first slide
+showSlide(currentSlide);
 
 
-updateProgress();
 
+
+// ===============================
+// MUSIC PLAYER
+// ===============================
+
+
+const music = document.getElementById("background-music");
+const musicButton = document.getElementById("music-btn");
+
+let musicPlaying = false;
+
+
+
+function toggleMusic(){
+
+
+    if(!music) return;
+
+
+
+    if(musicPlaying){
+
+
+        music.pause();
+
+        musicButton.innerHTML = "🎵 Play Music";
+
+
+        musicPlaying = false;
+
+
+
+    } else {
+
+
+        music.play();
+
+        musicButton.innerHTML = "⏸ Pause Music";
+
+
+        musicPlaying = true;
+
+
+    }
 
 }
 
+
+
+// Music button click
+if(musicButton){
+
+    musicButton.addEventListener(
+        "click",
+        toggleMusic
+    );
+
+}
+
+
+
+// Try autoplay after user interaction
+document.addEventListener("click",()=>{
+
+    if(music && !musicPlaying){
+
+        music.volume = 0.5;
+
+    }
+
+});
 
 
 function nextSlide(){
@@ -486,3 +632,138 @@ window.onload = function () {
 };
 
 };
+
+
+// ===============================
+// PART 3 - EXTRA EFFECTS & FINISH
+// ===============================
+
+
+// Floating hearts animation
+function createHeart() {
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+    heart.innerHTML = "💜";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+
+// Create hearts every second
+setInterval(createHeart, 800);
+
+
+
+// Secret message button
+function secretMessage() {
+
+    let message = `
+    💜 My favorite memory with you...
+
+    Thank you for being part of my life.
+    Every moment with you became something special.
+
+    No matter what happens,
+    I will always treasure our memories. 💜
+    `;
+
+    alert(message);
+}
+
+
+
+// Add smooth scrolling
+document.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", function(e){
+
+        let target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+        if(target){
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth"
+            });
+        }
+
+    });
+
+});
+
+
+
+// Hide loader after website loads
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+
+        if(loader){
+            loader.style.opacity = "0";
+
+            setTimeout(()=>{
+                loader.style.display = "none";
+            },500);
+        }
+
+    },1500);
+
+});
+
+
+
+// Add typing effect
+function typingEffect(element, text, speed = 80){
+
+    let i = 0;
+
+    element.innerHTML = "";
+
+    function typing(){
+
+        if(i < text.length){
+
+            element.innerHTML += text.charAt(i);
+            i++;
+
+            setTimeout(typing, speed);
+
+        }
+
+    }
+
+    typing();
+
+}
+
+
+
+// Start typing when main page opens
+function startTyping(){
+
+    const title = document.querySelector(".love-title");
+
+    if(title){
+
+        typingEffect(
+            title,
+            "Our Little World 💜",
+            100
+        );
+
+    }
+
+    }
