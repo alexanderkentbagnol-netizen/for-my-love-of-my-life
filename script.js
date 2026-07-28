@@ -767,3 +767,752 @@ function startTyping(){
     }
 
     }
+
+// ===============================
+// PART 4 - EXTRA EFFECTS
+// ===============================
+
+
+// Floating Hearts Effect
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "floating-heart";
+    heart.innerHTML = "❤️";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+    document.body.appendChild(heart);
+
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+
+}
+
+
+setInterval(createHeart, 500);
+
+
+
+
+// Typing Animation
+
+const messageText = 
+"Every moment with you became one of my favorite memories. Thank you for being part of my little world ❤️";
+
+
+let textIndex = 0;
+
+
+function typeMessage(){
+
+    const typingElement = document.getElementById("typing");
+
+
+    if(!typingElement) return;
+
+
+    if(textIndex < messageText.length){
+
+        typingElement.innerHTML += messageText.charAt(textIndex);
+
+        textIndex++;
+
+        setTimeout(typeMessage, 70);
+
+    }
+
+}
+
+
+window.addEventListener("load", () => {
+
+    setTimeout(typeMessage, 2000);
+
+});
+
+
+
+
+// Music Button
+
+const music = document.getElementById("background-music");
+const musicButton = document.getElementById("music-btn");
+
+
+if(musicButton && music){
+
+    musicButton.addEventListener("click", ()=>{
+
+
+        if(music.paused){
+
+            music.play();
+
+            musicButton.innerHTML = "⏸ Pause Music";
+
+        }
+
+        else{
+
+            music.pause();
+
+            musicButton.innerHTML = "🎵 Play Music";
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+// Image Click Animation
+
+const photos = document.querySelectorAll(".memory img");
+
+
+photos.forEach(photo => {
+
+
+    photo.addEventListener("click", ()=>{
+
+
+        photo.classList.toggle("zoom");
+
+
+    });
+
+
+});
+
+
+
+
+// Surprise Button
+
+const surpriseButton = document.getElementById("surprise-btn");
+
+
+if(surpriseButton){
+
+
+    surpriseButton.addEventListener("click", ()=>{
+
+
+        alert(
+        "You are one of the most special people in my life ❤️"
+        );
+
+
+    });
+
+
+}
+
+
+
+
+// Smooth Scroll For Buttons
+
+document.querySelectorAll("a").forEach(link=>{
+
+
+    link.addEventListener("click", function(e){
+
+
+        const target = document.querySelector(
+            this.getAttribute("href")
+        );
+
+
+        if(target){
+
+
+            e.preventDefault();
+
+
+            target.scrollIntoView({
+
+                behavior:"smooth"
+
+            });
+
+
+        }
+
+
+    });
+
+
+});
+
+
+
+
+// Console Message
+
+console.log(
+"❤️ Our Little World Website Loaded Successfully ❤️"
+);
+
+
+// ===============================
+// PART 5 - EXTRA FEATURES
+// ===============================
+
+
+// Love Counter
+// Change this date if your relationship date is different
+
+const startDate = new Date("2025-05-31");
+
+
+function updateLoveCounter(){
+
+    const now = new Date();
+
+    const difference = now - startDate;
+
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+
+    const hours = Math.floor(
+        (difference / (1000 * 60 * 60)) % 24
+    );
+
+
+    const minutes = Math.floor(
+        (difference / (1000 * 60)) % 60
+    );
+
+
+    const seconds = Math.floor(
+        (difference / 1000) % 60
+    );
+
+
+    const counter = document.getElementById("love-counter");
+
+
+    if(counter){
+
+        counter.innerHTML =
+        `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds ❤️`;
+
+    }
+
+}
+
+
+setInterval(updateLoveCounter,1000);
+
+updateLoveCounter();
+
+
+
+
+// Random Love Messages
+
+const loveMessages = [
+
+    "You make ordinary moments feel special ❤️",
+
+    "Thank you for being one of my happiest memories 💜",
+
+    "Every picture tells a story with you 📸",
+
+    "I hope this little website reminds you how special you are ✨",
+
+    "Some memories are worth keeping forever ❤️"
+
+];
+
+
+const messageButton = document.getElementById("message-btn");
+
+
+if(messageButton){
+
+
+    messageButton.addEventListener("click",()=>{
+
+
+        const random =
+        loveMessages[
+            Math.floor(Math.random()*loveMessages.length)
+        ];
+
+
+        const display =
+        document.getElementById("random-message");
+
+
+        if(display){
+
+            display.innerHTML = random;
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+// Automatic Memory Slideshow
+
+let currentSlide = 0;
+
+
+const slides =
+document.querySelectorAll(".slide");
+
+
+function showSlide(index){
+
+
+    slides.forEach(slide=>{
+
+        slide.style.display="none";
+
+    });
+
+
+    if(slides[index]){
+
+        slides[index].style.display="block";
+
+    }
+
+
+}
+
+
+
+function nextSlide(){
+
+
+    if(slides.length === 0) return;
+
+
+    currentSlide++;
+
+
+    if(currentSlide >= slides.length){
+
+        currentSlide = 0;
+
+    }
+
+
+    showSlide(currentSlide);
+
+
+}
+
+
+
+function previousSlide(){
+
+
+    if(slides.length === 0) return;
+
+
+    currentSlide--;
+
+
+    if(currentSlide < 0){
+
+        currentSlide = slides.length - 1;
+
+    }
+
+
+    showSlide(currentSlide);
+
+
+}
+
+
+
+showSlide(currentSlide);
+
+
+
+
+// Slideshow Buttons
+
+const nextButton =
+document.getElementById("next-btn");
+
+
+const previousButton =
+document.getElementById("previous-btn");
+
+
+
+if(nextButton){
+
+    nextButton.addEventListener(
+        "click",
+        nextSlide
+    );
+
+}
+
+
+if(previousButton){
+
+    previousButton.addEventListener(
+        "click",
+        previousSlide
+    );
+
+}
+
+
+
+
+// Auto Change Slides Every 5 Seconds
+
+if(slides.length > 0){
+
+    setInterval(nextSlide,5000);
+
+}
+
+
+
+
+// Reveal Animation When Scrolling
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+function revealOnScroll(){
+
+
+    revealElements.forEach(element=>{
+
+
+        const position =
+        element.getBoundingClientRect().
+
+
+// ===============================
+// PART 6 - FINAL EFFECTS & POLISH
+// ===============================
+
+
+// PASSWORD SCREEN EFFECT
+
+const passwordInput = document.getElementById("password-input");
+const passwordButton = document.getElementById("enter-btn");
+const passwordScreen = document.getElementById("password-screen");
+const mainContent = document.getElementById("main-content");
+
+
+// Change this password
+const correctPassword = "bella";
+
+
+if(passwordButton && passwordInput){
+
+
+    passwordButton.addEventListener("click",()=>{
+
+
+        if(passwordInput.value.toLowerCase() === correctPassword){
+
+
+            if(passwordScreen){
+
+                passwordScreen.style.opacity="0";
+
+
+                setTimeout(()=>{
+
+                    passwordScreen.style.display="none";
+
+                },1000);
+
+            }
+
+
+            if(mainContent){
+
+                mainContent.style.display="block";
+
+                setTimeout(()=>{
+
+                    mainContent.classList.add("show");
+
+                },100);
+
+            }
+
+
+            startConfetti();
+
+
+        }
+
+        else{
+
+
+            passwordInput.value="";
+
+            passwordInput.placeholder=
+            "Wrong password 💔";
+
+
+            passwordInput.classList.add("shake");
+
+
+            setTimeout(()=>{
+
+                passwordInput.classList.remove("shake");
+
+            },500);
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+// ENTER KEY PASSWORD LOGIN
+
+if(passwordInput){
+
+
+    passwordInput.addEventListener("keypress",(e)=>{
+
+
+        if(e.key==="Enter" && passwordButton){
+
+            passwordButton.click();
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+// CONFETTI EFFECT
+
+function startConfetti(){
+
+
+    for(let i=0;i<80;i++){
+
+
+        let confetti =
+        document.createElement("div");
+
+
+        confetti.className="confetti";
+
+
+        confetti.innerHTML =
+        ["❤️","💜","✨","⭐"][Math.floor(Math.random()*4)];
+
+
+        confetti.style.left =
+        Math.random()*100+"vw";
+
+
+        confetti.style.animationDuration =
+        (Math.random()*3+2)+"s";
+
+
+        document.body.appendChild(confetti);
+
+
+
+        setTimeout(()=>{
+
+            confetti.remove();
+
+        },5000);
+
+
+    }
+
+
+}
+
+
+
+
+// SECRET BUTTON
+
+const secretButton =
+document.getElementById("secret-btn");
+
+
+if(secretButton){
+
+
+    secretButton.addEventListener("click",()=>{
+
+
+        const secret =
+        document.getElementById("secret-message");
+
+
+        if(secret){
+
+
+            secret.innerHTML =
+            "💜 You found the secret message. This little world was made with love and memories ❤️";
+
+
+            secret.classList.add("show");
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+
+// IMAGE DOUBLE TAP EFFECT FOR MOBILE
+
+document.querySelectorAll("img").forEach(image=>{
+
+
+    let lastTap = 0;
+
+
+    image.addEventListener("touchend",()=>{
+
+
+        let currentTime =
+        new Date().getTime();
+
+
+        let tapLength =
+        currentTime-lastTap;
+
+
+        if(tapLength < 500){
+
+
+            image.classList.toggle("zoom");
+
+
+        }
+
+
+        lastTap=currentTime;
+
+
+    });
+
+
+});
+
+
+
+
+// BUTTON CLICK ANIMATION
+
+document.querySelectorAll("button")
+.forEach(button=>{
+
+
+    button.addEventListener("click",()=>{
+
+
+        button.classList.add("clicked");
+
+
+        setTimeout(()=>{
+
+            button.classList.remove("clicked");
+
+        },300);
+
+
+    });
+
+
+});
+
+
+
+
+// BACK TO TOP BUTTON
+
+const topButton =
+document.getElementById("top-btn");
+
+
+if(topButton){
+
+
+    topButton.addEventListener("click",()=>{
+
+
+        window.scrollTo({
+
+            top:0,
+
+            behavior:"smooth"
+
+        });
+
+
+    });
+
+
+}
+
+
+
+
+// WEBSITE READY MESSAGE
+
+window.addEventListener("load",()=>{
+
+
+    console.log(
+    "💜 Our Little World is completely loaded 💜"
+    );
+
+
+});
+            
