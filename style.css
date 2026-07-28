@@ -1,112 +1,762 @@
-/* =================================
-   GLOBAL SETTINGS
-================================= */
+/* ================================
+   OUR LITTLE WORLD ❤️
+   STYLE.CSS PART 1
+================================ */
 
-
+/* RESET */
 * {
-
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins', Arial, sans-serif;
-
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-
+html {
+    scroll-behavior: smooth;
+}
 
 body {
+    background: linear-gradient(135deg, #2b003b, #6a0dad, #b565f5);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
 
-    min-height:100vh;
-    background:
-linear-gradient(
-135deg,
-#d8b4fe,
-#f3e8ff,
-#c084fc
-);
 
-    overflow-x:hidden;
-    color:#6b2145;
+/* ================================
+   LOADING SCREEN
+================================ */
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #20002c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+#loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.loader-heart {
+    font-size: 60px;
+    animation: heartbeat 1s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 
 }
 
 
 
+/* ================================
+   PASSWORD SCREEN
+================================ */
+
+#passwordPage {
+
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+
+    background:
+    linear-gradient(
+        rgba(20,0,40,0.8),
+        rgba(20,0,40,0.8)
+    ),
+    url("images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 5000;
+}
 
 
-/* =================================
-   OPENING SCREEN
-================================= */
+.password-box {
+
+    width: 90%;
+    max-width: 400px;
+
+    padding: 35px;
+
+    background: rgba(255,255,255,0.12);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,0.2);
+
+    animation: fadeUp 1s ease;
+
+}
 
 
-#opening {
+.password-box h1 {
 
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    font-size: 32px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.password-box p {
+
+    opacity: .8;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+#passwordInput {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+#enterBtn {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 30px;
+
+    background: #d896ff;
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+#enterBtn:hover {
+
+    background: #ffffff;
+
+    color: #6a0dad;
+
+    transform: scale(1.05);
+
+}
+
+
+
+/* ================================
+   MAIN WEBSITE
+================================ */
+
+
+#mainContent {
+
+    display: none;
+
+    animation: fadeIn 1.5s ease;
+
+}
+
+
+
+.container {
+
+    width: 90%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 30px 0;
+
+}
+
+
+
+/* ================================
+   INTRO SECTION
+================================ */
+
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+}
+
+
+
+.hero h1 {
+
+    font-size: 45px;
+
+    animation: floating 3s infinite;
+
+}
+
+
+
+.hero span {
+
+    color: #ffd6ff;
+
+}
+
+
+
+.hero p {
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    opacity: .9;
+
+}
+
+
+
+/* ================================
+   ANIMATIONS
+================================ */
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity:0;
+
+    }
+
+    to {
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes floating {
+
+    0% {
+
+        transform:translateY(0);
+
+    }
+
+    50% {
+
+        transform:translateY(-15px);
+
+    }
+
+    100% {
+
+        transform:translateY(0);
+
+    }
+
+}
+    border:none;
+
+
+/* ================================
+   MEMORY SECTION
+================================ */
+
+.memories {
+
+    padding: 80px 0;
+
+    text-align:center;
+
+}
+
+
+.section-title {
+
+    font-size:35px;
+
+    margin-bottom:40px;
+
+    color:#ffd6ff;
+
+}
+
+
+
+.memory-container {
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.memory-card {
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(10px);
+
+    padding:25px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,0.15);
+
+    transition:.4s;
+
+}
+
+
+
+.memory-card:hover {
+
+    transform:translateY(-10px) scale(1.03);
+
+}
+
+
+
+.memory-card h3 {
+
+    color:#ffd6ff;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.memory-card p {
+
+    line-height:1.6;
+
+    opacity:.9;
+
+}
+
+
+
+/* ================================
+   PHOTO GALLERY
+================================ */
+
+
+.gallery {
+
+    padding:70px 0;
+
     text-align:center;
 
 }
 
 
 
-.opening-box {
+.photo-grid {
 
-    background:
-    rgba(255,255,255,0.7);
+    display:grid;
 
-    backdrop-filter:blur(15px);
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
 
-    padding:40px;
-
-    border-radius:30px;
-
-    width:90%;
-    max-width:500px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.15);
-
-    animation:
-    zoom 1.5s ease;
+    gap:15px;
 
 }
 
 
 
-.opening-box h1 {
+.photo-grid img {
 
-    font-size:40px;
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:.5s;
+
+    box-shadow:
+    0 0 15px rgba(255,255,255,.2);
+
+}
+
+
+
+.photo-grid img:hover {
+
+    transform:scale(1.08);
+
+    filter:brightness(1.15);
+
+}
+
+
+
+/* ================================
+   LOVE LETTER
+================================ */
+
+
+.letter {
+
+    padding:70px 20px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+.letter-box {
+
+    max-width:700px;
+
+    background:
+    rgba(255,255,255,.13);
+
+    backdrop-filter:blur(15px);
+
+    padding:35px;
+
+    border-radius:30px;
+
+    line-height:1.8;
+
+    text-align:center;
+
+    box-shadow:
+    0 0 30px rgba(255,255,255,.15);
+
+}
+
+
+
+.letter-box h2 {
+
+    color:#ffd6ff;
+
     margin-bottom:20px;
 
 }
 
 
 
-.opening-box p {
+.letter-box p {
 
-    margin-bottom:30px;
-    font-size:18px;
+    font-size:17px;
 
 }
 
 
 
+/* ================================
+   MUSIC PLAYER
+================================ */
+
+
+.music-player {
+
+    position:fixed;
+
+    bottom:20px;
+
+    right:20px;
+
+    z-index:1000;
+
+}
 
 
 
+.music-player button {
 
-/* =================================
-   BUTTONS
-================================= */
+    width:60px;
 
+    height:60px;
 
-button {
-
+    border-radius:50%;
 
     border:none;
 
+    cursor:pointer;
+
+    background:#d896ff;
+
+    color:white;
+
+    font-size:25px;
+
+    box-shadow:
+
+    0 0 20px rgba(216,150,255,.8);
+
+    transition:.3s;
+
+}
+
+
+
+.music-player button:hover {
+
+    transform:scale(1.15);
+
+    background:white;
+
+    color:#6a0dad;
+
+}
+
+
+
+/* ================================
+   SLIDESHOW
+================================ */
+
+
+.slideshow {
+
+    position:relative;
+
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+}
+
+
+
+.slide {
+
+    display:none;
+
+}
+
+
+
+.slide.active {
+
+    display:block;
+
+    animation:slideFade 1s;
+
+}
+
+
+
+.slide img {
+
+    width:100%;
+
+    border-radius:25px;
+
+}
+
+
+
+@keyframes slideFade {
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.9);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+/* ================================
+   FLOATING HEARTS
+================================ */
+
+
+.heart {
+
+    position:fixed;
+
+    bottom:-20px;
+
+    font-size:25px;
+
+    animation:heartFloat 8s linear infinite;
+
+    opacity:.7;
+
+    pointer-events:none;
+
+}
+
+
+
+@keyframes heartFloat {
+
+
+    0% {
+
+        transform:
+        translateY(0)
+        rotate(0deg);
+
+        opacity:0;
+
+    }
+
+
+    20% {
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+/* ================================
+   FOOTER
+================================ */
+
+
+footer {
+
+    text-align:center;
+
+    padding:30px;
+
+    font-size:14px;
+
+    opacity:.8;
+
+}
+
+
+
+/* ================================
+   MOBILE DESIGN
+================================ */
+
+
+@media
     padding:15px 30px;
 
     border-radius:50px;
