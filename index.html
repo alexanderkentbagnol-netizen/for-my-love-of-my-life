@@ -9,11 +9,14 @@
 </head>
 
 <body>
-    
-<script src="script.js"></script>
-</body>
-</html>
-    
+
+    <!-- =========================
+         LOADING SCREEN
+    ========================== -->
+
+    <div id="loader">
+        💜 Loading Our Memories...
+    </div>
 
     <!-- =========================
          PASSWORD SCREEN
@@ -105,6 +108,85 @@
                 <h2>More memories waiting for us 🌷</h2>
 
             </div>
+
+        </div>
+
+        <!-- Controls -->
+
+        <div class="controls">
+
+            <button onclick="previousSlide()">⬅️</button>
+
+            <span id="progress">1/4</span>
+
+            <button onclick="nextSlide()">➡️</button>
+
+        </div>
+
+        <!-- =========================
+             MEMORY TIMELINE
+        ========================== -->
+
+        <section class="memory">
+
+            <h1>Our Journey 💕</h1>
+
+            <div class="timeline">
+
+                <div>
+                    <h3>Day One 🌱</h3>
+                    <p>The day everything started.</p>
+                </div>
+
+                <div>
+                    <h3>Beautiful Moments 🌸</h3>
+                    <p>Small memories that became important.</p>
+                </div>
+
+                <div>
+                    <h3>Today ❤️</h3>
+                    <p>Still creating more memories together.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- =========================
+             LOVE COUNTER
+        ========================== -->
+
+        <section class="counter">
+
+            <h2>Our Memories</h2>
+
+            <h1 id="loveDays">
+                0 days of memories ❤️
+            </h1>
+
+        </section>
+
+        <!-- =========================
+             SECRET MESSAGE
+        ========================== -->
+
+        <button class="secret" onclick="secretMessage()">
+            Open Secret Message 💌
+        </button>
+
+        <footer>
+
+            <p>Made with love ❤️</p>
+
+        </footer>
+
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>            </div>
 
         </div>
 
