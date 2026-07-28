@@ -469,10 +469,20 @@ document.getElementById("wrongPassword")
 
 // Start first slide
 
-window.onload=function(){
+window.onload = function () {
 
-changeSlide(0);
+    setTimeout(() => {
 
-updateLoveTimer();
+        // Hide loading screen
+        document.getElementById("loader").style.display = "none";
+
+        // Show password screen
+        document.getElementById("opening").style.display = "flex";
+
+    }, 3000);
+
+    changeSlide(0);
+    updateLoveTimer();
+};
 
 };
